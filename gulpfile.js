@@ -36,7 +36,7 @@ var handleErrors = function () {
 
 /* Scripts */
 gulp.task('scripts', function () {
-  return browserify('./src/pokedex/index.js', { debug: true })
+  return browserify('./src/redux-simple-starter-udemy/index.js', { debug: true })
   .transform(babelify, {
     presets: ['es2015', 'react'],
 	plugins : ['transform-object-rest-spread']
@@ -72,7 +72,7 @@ gulp.task('html', function () {
     spare: true
   };
 
-  return gulp.src('./src/pokedex/*.html')
+  return gulp.src('./src/redux-simple-starter-udemy/*.html')
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./dist'));})
 
