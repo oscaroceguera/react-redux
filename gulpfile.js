@@ -53,7 +53,7 @@ gulp.task('scripts', function () {
 
 /* Stylus */
 gulp.task('styles', function(){
-	return gulp.src('./src/pokedex/app.styl')
+	return gulp.src('./src/redux-simple-starter-udemy/style/app.styl')
 	.pipe(stylus({
 		'include css' : true
 	}))
