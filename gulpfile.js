@@ -36,7 +36,7 @@ var handleErrors = function () {
 
 /* Scripts */
 gulp.task('scripts', function () {
-  return browserify('./src/redux-simple-starter-udemy/index.js', { debug: true })
+  return browserify('./src/book-list-udemy/index.js', { debug: true })
   .transform(babelify, {
     presets: ['es2015', 'react'],
 	plugins : ['transform-object-rest-spread']
@@ -53,7 +53,7 @@ gulp.task('scripts', function () {
 
 /* Stylus */
 gulp.task('styles', function(){
-	return gulp.src('./src/redux-simple-starter-udemy/style/app.styl')
+	return gulp.src('./src/book-list-udemy/styles/app.styl')
 	.pipe(stylus({
 		'include css' : true
 	}))
@@ -72,7 +72,7 @@ gulp.task('html', function () {
     spare: true
   };
 
-  return gulp.src('./src/redux-simple-starter-udemy/*.html')
+  return gulp.src('./src/book-list-udemy/*.html')
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./dist'));})
 
