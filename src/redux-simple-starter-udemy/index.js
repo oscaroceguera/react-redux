@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import YTSearch from 'youtube-api-search'
-import SearchBar from './components/serach-bar.js'
+import SearchBar from './components/serach-bar'
+import VideoList from './components/video-list'
+import VideoDetail from './components/video-detail'
 const API_KEY = 'AIzaSyBVdcToUX5OPN5-bnzXz3V0xMK7uO2p7No'
 
 class App extends React.Component {
@@ -12,8 +14,9 @@ class App extends React.Component {
 
 		this.state = { videos: [] }
 
-		YTSearch({ key: API_KEY, term: 'surfboards' }, function(data){
-			console.log(data);
+		YTSearch({ key: API_KEY, term: 'surfboards' }, (videos) => {
+			this.setState({ videos }) // when the key and the property is equal : this.setState({ videos: videos})
+
 		})
 
 	}
@@ -22,6 +25,8 @@ class App extends React.Component {
 		return (
 			<div>
 				<SearchBar />
+				<VideoDetail video={this.state.videos[0]}/>
+				<VideoList  videos={this.state.videos} />
 			</div>
 		)
 	}
